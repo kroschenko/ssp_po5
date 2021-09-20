@@ -2,30 +2,34 @@ package main2;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.stream.IntStream;
 
 
 public class App1 {
 
     public static void main(String[] args) throws IOException {
-        URL path = App1.class.getResource("file.txt");
-        assert path != null;
-        File f = new File(path.getFile());
-        var reader = new BufferedReader(new FileReader(f));
+        var stream = App1.class.getResourceAsStream("file.txt");
+        if (stream == null){
+            return;
+        }
+        var text = new String(stream.readAllBytes());
+        text = text.toLowerCase(Locale.ROOT);
+        var lines= text.split("\n");
         var wordsToLines = new HashMap<String, Set<Integer>>();
-        for (var i = 0; ; i++) {
-            var content = reader.readLine();
-            if (content == null) {
-                break;
-            }
-            var words = content.split("\\W+");
+        for (var i = 0; i < lines.length; i++){
+            var words = lines[i].split("\\W+");
             for (var word : words) {
-                wordsToLines.merge(word, new HashSet<>(List.of(i)), (a, b) -> {
-                    a.addAll(b);
-                    return a;
-                });
+                wordsToLines.merge(word, Set.of(i), App1::merge);
             }
         }
         System.out.println(wordsToLines);
+    }
+
+    private static Set<Integer> merge(Set<Integer> a, Set<Integer> b) {
+        var newSet = new HashSet<>(a);
+        newSet.addAll(b);
+        return newSet;
     }
 }
