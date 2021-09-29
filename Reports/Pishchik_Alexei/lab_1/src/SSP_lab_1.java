@@ -32,11 +32,11 @@ public class SSP_lab_1 {
         return result_str;
     }
 
-    public static void task_1 (String[] args) {
+    public static void task_1 (String s) {
         double sum = 0;
         int count = 0, maxsize;
         System.out.println("Enter maxsize numbers");
-        maxsize = Integer.parseInt(arr[0]);
+        maxsize = Integer.parseInt(s);
         int[] mass = new int[maxsize];
         System.out.println("Enter numbers");
         for (int i = 0; i < maxsize; i++) {
@@ -54,15 +54,15 @@ public class SSP_lab_1 {
         System.out.println("Procet = " + result);
     }
 
-    public static void task_2 (String[] args) {
+    public static void task_2 (String s) {
         int size = 0;
         System.out.println("Enter size matrix");
-        size = Integer.parseInt(arr[0]);
+        size = Integer.parseInt(s);
         single(size);
     }
 
-    public static void task_3 (String[] args) {
-        System.out.println(capitalize(arr[0]));
+    public static void task_3 (String s) {
+        System.out.println(capitalize(s));
     }
 
     public static void main(String[] args) {
