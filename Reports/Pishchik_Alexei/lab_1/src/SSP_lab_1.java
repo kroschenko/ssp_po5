@@ -12,7 +12,7 @@ public class SSP_lab_1 {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (i == j) mass[i][j] = 1;
-                else mass[i][j] = generateRandomIntIntRange(1, 100);
+                else mass[i][j] = 0;
                 System.out.print(mass[i][j] + "  ");
             }
             System.out.print('\n');
