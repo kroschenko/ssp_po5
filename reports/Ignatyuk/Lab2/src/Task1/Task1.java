@@ -11,7 +11,7 @@ public class Task1 {
 
         while (fin.hasNext()) {
             String word = fin.next();
-            word = word.replaceAll("\\s|\\d|,|\\.|!|\\?", "");
+            word = word.replaceAll("\\W+", "");
 
             int key = word.length();
 
