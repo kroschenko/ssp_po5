@@ -1,14 +1,12 @@
-package lab_2;
-
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
-
 public class SSP_lab_2_task_1 {
+   
     public static void main(String[] args) {
         char[] buf = new char[512];
         String[] arrayString = new String[100];
-        try (FileReader reader = new FileReader("D:/JAVA/lab_2/test.txt")) {
+        try (FileReader reader = new FileReader("test.txt")) {
         int c;
         System.out.println("Origin: ");
          while((c = reader.read(buf))>0) {      
@@ -39,6 +37,10 @@ public class SSP_lab_2_task_1 {
                     count++;
                 }
                 help = "";
+            }
+            if(j == buf.length-1) {
+                arrayString[count] = help;
+                    count++;
             }
         }
         String[] arrayString1 = new String[count];
