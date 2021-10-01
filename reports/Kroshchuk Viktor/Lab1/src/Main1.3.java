@@ -1,31 +1,29 @@
 package com.company;
 
-import java.util.Scanner;
-
 public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Введите слово на проверку нижнего регистра:");
-        String cs =input.nextLine();
-       // String cs=null;
-        System.out.println(isAllLowerCase(cs));
-    }
 
+    public static void main(String[] args) {
+        for (String cs : args) {
+            System.out.println("Argument = " + cs);
+            System.out.println(isAllLowerCase(cs));
+        }
+
+    }
     public static boolean isAllLowerCase(String cs) {
         if (cs != null && !isEmpty(cs)) {
             int sz = cs.length();
 
             for (int i = 0; i < sz; ++i) {
                 if (!Character.isLowerCase(cs.charAt(i))) {
-                    System.out.println("В вашем тексте есть верхний регистр либо пропуски");
+                    System.out.println("Your text contains upper case or gaps");
                     return false;
                 }
             }
-            System.out.println("Ваш текст введен нижним регистром");
+            System.out.println("Your text is in lower case");
             return true;
         }
         else  {
-            System.out.println("Ваш текст равен null, либо вы не ввели текст");
+            System.out.println("Your text is null, or you didn't enter any text");
             return false;
         }
     }
