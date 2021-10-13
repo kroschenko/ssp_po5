@@ -32,7 +32,7 @@ public class SSP_lab_2_task_1 {
                 for(int r = 0; r < count; r++) {
                     if (help.equals(arrayString[r])) flag = true;
                 }
-                if(flag == false) {
+                if(flag == false && !help.equals("")) {
                     arrayString[count] = help;
                     count++;
                 }
