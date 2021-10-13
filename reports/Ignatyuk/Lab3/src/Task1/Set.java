@@ -1,4 +1,5 @@
 public final class Set {
+    private final Integer MAX_POWER;
     private Integer[] base;
 
     private final void sort() {
@@ -21,11 +22,16 @@ public final class Set {
         }
     }
 
-    public Set(Integer[] base) {
+    private final Boolean hasSpace() {
+        return this.base.length < this.MAX_POWER;
+    }
+
+    public Set(final Integer maxPower, final Integer[] base) {
+        this.MAX_POWER = maxPower;
         this.base = new Integer[] {};
 
-        for (final Integer item : base) {
-            this.add(item);
+        for (Integer i = 0, size = base.length; i < size && this.hasSpace(); ++i) {
+            this.add(base[i]);
         }
 
         this.sort();
@@ -62,8 +68,8 @@ public final class Set {
     }
 
     public final void join(final Set other) {
-        for (final Integer item : other.base) {
-            this.add(item);
+        for (Integer i = 0, size = other.base.length; i < size && this.hasSpace(); ++i) {
+            this.add(other.base[i]);
         }
 
         this.sort();
@@ -84,6 +90,10 @@ public final class Set {
     }
 
     public final void add(final Integer item) {
+        if (!this.hasSpace()) {
+            return;
+        }
+
         if (this.isMember(item)) {
             return;
         }
