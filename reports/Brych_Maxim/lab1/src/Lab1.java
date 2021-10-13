@@ -37,7 +37,7 @@ public class Lab1 {
 
     public static void Task2(int val, int min, int max, int step) {
         System.out.println("\nЗадание №2:");
-        Double [] array = new Double[20];
+        Double [] array = new Double[val];
         Random rand = new Random();
 
         System.out.println("Последовательность:");
@@ -49,7 +49,7 @@ public class Lab1 {
 
         
         System.out.print("\nКоличество позиций сдвига: " + step);
-        shiftRight(array, step % 20);
+        shiftRight(array, step % val);
         System.out.println();
         for(int i = 0; i < val; i++) { 
             System.out.print(array[i] + " ");
@@ -59,7 +59,7 @@ public class Lab1 {
     public static void shiftRight(Double[] array, int shift) {
         Double temp = 0d;
         for(int iter = 0; iter < shift; iter++)
-            for(int i = 20 - 1; i > 0; i--) {
+            for(int i = array.length - 1; i > 0; i--) {
                 temp = array[i];
                 array[i] = array[i - 1];
                 array[i - 1] = temp;
