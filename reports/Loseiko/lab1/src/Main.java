@@ -75,8 +75,9 @@ public class Main {
 
     public static void shiftLeft(double[] array, int shift) {
         if (shift > array.length) {
-            System.out.println("Error. The offset is greater than the length of the array.");
-        } else {
+            shift= shift % array.length;
+        }
+
             double[] arr2 = new double[array.length];
             int k = 0;
             for (int i = shift; i < array.length; i++) {
@@ -92,7 +93,7 @@ public class Main {
             }
 
         }
-    }
+
 
     public static String xor(String str1, String str2) {
         String str = "";
