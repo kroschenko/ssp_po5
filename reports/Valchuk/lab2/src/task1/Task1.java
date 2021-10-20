@@ -9,7 +9,7 @@ public class Task1 {
     public static void main(String[] args) {
         try {
             String fileContents = Files.readString(Path.of("files/text.txt"));
-            String fileContentsWithoutDuplicates = Arrays.stream(fileContents.split(" "))
+            String fileContentsWithoutDuplicates = Arrays.stream(fileContents.split("\\P{L}+"))
                     .distinct()
                     .collect(Collectors.joining(" "));
 
