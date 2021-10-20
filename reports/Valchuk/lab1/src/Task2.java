@@ -3,7 +3,11 @@ import java.util.Scanner;
 
 public class Task2 {
 
-    private static double[] subArray(double[] array, int startIndex, int endIndex) {
+    private static double[] subArray(double[] array, int startIndex, int endIndex) throws Exception {
+        if (startIndex >= endIndex) {
+            throw new Exception("End index must me greater than start index.");
+        }
+
         double[] subArray = new double[endIndex - startIndex];
         int subArrayIndex = 0;
 
@@ -29,7 +33,14 @@ public class Task2 {
         System.out.print(("End index: "));
         int endIndex = scanner.nextInt();
 
-        double[] subArray = subArray(array, startIndex, endIndex);
+        double[] subArray;
+        try {
+            subArray = subArray(array, startIndex, endIndex);
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
+
+            return;
+        }
         System.out.print(Arrays.toString(subArray));
     }
 }

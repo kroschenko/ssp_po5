@@ -7,11 +7,12 @@ public class Task3 {
             return null;
         }
 
+        int strLength = str.length();
+
         if (shift < 0) {
-            shift += str.length();
+            shift = (shift % strLength) + str.length();
         }
 
-        int strLength = str.length();
         return str.substring(strLength - (shift % strLength)) + str.substring(0, strLength - (shift % strLength));
     }
 
