@@ -1,24 +1,21 @@
-package main4.task3;
+package main5.task3;
 
-import main5.task3.Medic;
-import main5.task3.Patient;
-import main5.task3.Treatment;
 import java.util.*;
 
 
 public class Doctor extends Medic {
 
-    public final Set<Patient> patients;
+    public final Set<Curable> patients;
 
     public Doctor() {
         this(new HashSet<>());
     }
 
-    public Doctor(Set<Patient> patients) {
+    public Doctor(Set<Curable> patients) {
         this.patients = patients;
     }
 
-    public void prescribeTreatment(Patient patient) {
+    public void prescribeTreatment(Curable patient) {
         var treatments = Treatment.values();
         var treatment = treatments[new Random().nextInt(treatments.length)];
         patient.prescribeTreatment(treatment);

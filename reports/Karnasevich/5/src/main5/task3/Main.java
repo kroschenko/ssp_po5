@@ -1,9 +1,5 @@
-package main4.task3;
+package main5.task3;
 
-import main5.task3.Clinic;
-import main5.task3.Doctor;
-import main5.task3.Nurse;
-import main5.task3.Patient;
 import java.util.ArrayList;
 
 
