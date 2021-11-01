@@ -17,11 +17,10 @@ public class Test {
 
 class SierpinskiTriangle extends JFrame {
 
-    private final SierpinskiPanel sie = new SierpinskiPanel();
-
     public SierpinskiTriangle() {
         JPanel panel = new JPanel();
         add(panel, BorderLayout.SOUTH);
+        SierpinskiPanel sie = new SierpinskiPanel();
         add(sie);
         sie.setOrder(10);
     }
