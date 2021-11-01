@@ -1,8 +1,5 @@
 package main4.task3;
 
-import main5.task3.Medic;
-import main5.task3.Patient;
-import main5.task3.Treatment;
 import java.util.*;
 
 
