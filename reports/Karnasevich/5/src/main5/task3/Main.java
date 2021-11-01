@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         var clinic = new Clinic(
                 new ArrayList<>() {{
-                    add(new main5.task3.Doctor());
+                    add(new Doctor());
                     add(new Doctor());
                 }},
                 new ArrayList<>() {{
