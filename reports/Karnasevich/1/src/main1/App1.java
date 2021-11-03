@@ -1,14 +1,16 @@
 package main1;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class App1 {
 
     public static void main(String[] args) {
-        System.out.println(findMode(List.of(1, 2, 3, 4, 5, 1, 2, 3, 3)));
-        System.out.println(findMode(List.of()));
-        System.out.println(findMode(List.of(1, 2, 3, 4, 5)));
+        var values = Arrays.stream(args)
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
+        System.out.println(findMode(values));
     }
 
     public static List<Integer> findMode(Collection<Integer> collection) {

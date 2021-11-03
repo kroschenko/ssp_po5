@@ -17,17 +17,11 @@ public class App3 {
         System.out.println(Arrays.toString(array));
     }
 
-    public static void shiftRightNative(double[] array, int shift) {
-        System.arraycopy(array, 0, array, shift, array.length - shift);
-        Arrays.fill(array, 0, shift, 0);
-    }
-
     public static void shiftRight(double[] array, int shift) {
-        for (int i = array.length - 1; i >= shift; i--) {
-            array[i] = array[i - shift];
-        }
-        for (int i = 0; i < shift; i++) {
-            array[i] = 0;
-        }
+        shift = shift % array.length;
+        var buffer = new double[shift];
+        System.arraycopy(array, array.length - shift, buffer, 0, shift);
+        System.arraycopy(array, 0, array, shift, array.length - shift);
+        System.arraycopy(buffer, 0, array, 0, shift);
     }
 }
