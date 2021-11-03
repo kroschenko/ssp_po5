@@ -18,6 +18,7 @@ public class App3 {
     }
 
     public static void shiftRight(double[] array, int shift) {
+        shift = Math.abs(shift);
         shift = shift % array.length;
         var buffer = new double[shift];
         System.arraycopy(array, array.length - shift, buffer, 0, shift);
