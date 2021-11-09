@@ -19,22 +19,22 @@ class Lab2Ex1 {
             
             BufferedReader bfr = new BufferedReader(new FileReader(args[0]));
             String str = "";
-            String[] subStrings;
             int digitCount = 0;
             
             while((str = bfr.readLine()) != null) {
-                subStrings = str.split(" ");
-                for (String elem : subStrings) {
-                    if (elem.equals("0") ||
-                        elem.equals("1") ||
-                        elem.equals("2") ||
-                        elem.equals("3") ||
-                        elem.equals("4") ||
-                        elem.equals("5") ||
-                        elem.equals("6") ||
-                        elem.equals("7") ||
-                        elem.equals("8") ||
-                        elem.equals("9"))
+                char[] strChar;
+                strChar = str.toCharArray();
+                for (int i = 0; i < strChar.length; i++) {
+                    if (strChar[i] == '0' ||
+                        strChar[i] == '1' ||
+                        strChar[i] == '2' ||
+                        strChar[i] == '3' ||
+                        strChar[i] == '4' ||
+                        strChar[i] == '5' ||
+                        strChar[i] == '6' ||
+                        strChar[i] == '7' ||
+                        strChar[i] == '8' ||
+                        strChar[i] == '9')
                     {
                         digitCount++;
                     }
@@ -56,18 +56,19 @@ class Lab2Ex1 {
             bfr = new BufferedReader(new FileReader(args[0]));
             
             while((str = bfr.readLine()) != null) {
-                subStrings = str.split(" ");
-                for (String elem : subStrings) {
-                    if (elem.equals("0") ||
-                        elem.equals("1") ||
-                        elem.equals("2") ||
-                        elem.equals("3") ||
-                        elem.equals("4") ||
-                        elem.equals("5") ||
-                        elem.equals("6") ||
-                        elem.equals("7") ||
-                        elem.equals("8") ||
-                        elem.equals("9"))
+                char[] strChar;
+                strChar = str.toCharArray();
+                for (int i = 0; i < strChar.length; i++) {
+                    if (strChar[i] == '0' ||
+                        strChar[i] == '1' ||
+                        strChar[i] == '2' ||
+                        strChar[i] == '3' ||
+                        strChar[i] == '4' ||
+                        strChar[i] == '5' ||
+                        strChar[i] == '6' ||
+                        strChar[i] == '7' ||
+                        strChar[i] == '8' ||
+                        strChar[i] == '9')
                     {
                         digitCount++;
                         if (digitCount == index) {

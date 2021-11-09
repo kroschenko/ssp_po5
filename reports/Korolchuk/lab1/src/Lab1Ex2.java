@@ -9,7 +9,7 @@ public class Lab1Ex2 {
             mass[i] = Double.parseDouble(args[i].trim());
         }
         
-        mass = add(mass, 3, 4.0).clone();
+        mass = add(mass, 10, 4.0).clone();
         
         for(double elem : mass) {
             System.out.print(elem + " ");
@@ -17,6 +17,11 @@ public class Lab1Ex2 {
     }
     
     public static double [] add(double [] array, int index, double element) {
+        if (index < 0 || index > array.length) {
+            System.out.println("Некорректный индекс");
+            return array;
+        }
+        
         double [] newArray = new double [array.length + 1];
         
         for (int i = 0, j = 0; i < newArray.length; i++, j++) {
