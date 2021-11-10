@@ -33,4 +33,14 @@ public final class Book {
     public final String f_get_author() {
         return this.m_Author;
     }
+
+    public final boolean equals(final Object c_Other) {
+        if (this.f_get_year().equals(((Book) c_Other).f_get_year())
+                && this.f_get_title().equals(((Book) c_Other).f_get_title())
+                && this.f_get_author().equals(((Book) c_Other).f_get_author())) {
+            return Boolean.TRUE;
+        }
+
+        return Boolean.FALSE;
+    }
 }
