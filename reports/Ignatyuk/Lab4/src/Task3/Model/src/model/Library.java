@@ -10,6 +10,8 @@ public final class Library {
     private Set<Reader> m_Readers = new HashSet<Reader>(), m_BlackList = new HashSet<Reader>();
     private Set<Order> m_Orders = new HashSet<Order>();
 
+    private String c_Deadline = new String("11/10/2021");
+
     public Library() {
     }
 
@@ -158,7 +160,11 @@ public final class Library {
     }
 
     public final String f_generate_deadline() {
-        return "11/10/2021";
+        return c_Deadline;
+    }
+
+    public final Boolean f_check_deadline(final Order c_Order) {
+        return c_Deadline.equals(c_Order.f_get_deadline());
     }
 
     public final Order f_process_order(final Reader c_Reader, final Book c_Book) {
@@ -185,5 +191,19 @@ public final class Library {
 
         this.m_Orders.add(c_Order);
         return c_Order;
+    }
+
+    public final void f_update() {
+        Boolean v_Updated = Boolean.FALSE;
+
+        while (!v_Updated) {
+            for (final Administrator c_Administrator : m_Administrators) {
+                if (c_Administrator.f_is_working()) {
+                    c_Administrator.f_update();
+                    v_Updated = Boolean.TRUE;
+                    break;
+                }
+            }
+        }
     }
 }

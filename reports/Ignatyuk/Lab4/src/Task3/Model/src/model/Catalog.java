@@ -29,7 +29,18 @@ public final class Catalog {
     }
 
     public final Boolean f_book_search(final Book c_Book) {
-        return this.m_Books.contains(c_Book);
+        Boolean v_Result = Boolean.FALSE;
+
+        for (final Book c_CurrentBook : m_Books) {
+            if (c_CurrentBook.f_get_year() == c_Book.f_get_year()
+                    && c_CurrentBook.f_get_title().equals(c_Book.f_get_title())
+                    && c_CurrentBook.f_get_author().equals(c_Book.f_get_author())) {
+                v_Result = Boolean.TRUE;
+                break;
+            }
+        }
+
+        return v_Result;
     }
 
     public final Book f_give_book(final Book c_Book) {
