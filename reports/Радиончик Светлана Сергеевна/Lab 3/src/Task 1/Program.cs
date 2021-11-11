@@ -6,15 +6,16 @@ namespace Lab3_1
 	{
 		static void Main(string[] args)
 		{
-			Set set1 = new Set(new double[] { -2, 3.5, 4, 7 });
+			Set set1 = new Set(new double?[] {3, 13});
 			Set set2 = new Set(set1.set);
 			set1.Print();
 			set2.Print();
 
-			set1.AddElement(10);
-			set1.Print();
-			set2.DeleteElement(3.5);
+			set2.DeleteElement(3);
 			set2.Print();
+			set2.AddElement(32);
+			set2.Print();
+			set2.AddElement(3);
 
 			Console.WriteLine(set1.Equals(set2));
 

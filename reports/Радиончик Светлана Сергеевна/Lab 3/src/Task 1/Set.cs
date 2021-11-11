@@ -5,27 +5,44 @@ namespace Lab3_1
 {
 	class Set
 	{
-		public double[] set;
+		public double?[] set;
 
 		public Set(int N)
 		{
-			this.set = new double[N];
+			this.set = new double?[N];
+			for (int i = 0; i < N; i++)
+				this.set[i] = null;
 		}
 
-		public Set(double[] set)
+		public Set(double?[] set)
 		{
-			this.set = new double[set.Length];
-			this.set = set;
+			this.set = new double?[set.Length];
+			for (int i = 0; i < set.Length; i++)
+				this.set[i] = set[i];
 		}
 
 		public Set CombineSet(Set addedSet)
 		{
-			Set combineSet = new Set(this.set);
+			int size = this.set.Count(i => i != null);
+			size += addedSet.set.Count(i => i != null);
 
-			for(int i = 0; i < addedSet.set.Length; i++)
+			Set combineSet = new Set(size);
+
+			for(int i = 0; i < this.set.Length; i++)
 			{
-				if (!combineSet.set.Any(x => x == addedSet.set[i]))
-					combineSet.AddElement(addedSet.set[i]);
+				if (this.set[i] != null)
+				{
+					combineSet.AddElement(this.set[i]);
+				}
+			}
+
+			for (int i = 0; i < addedSet.set.Length; i++)
+			{
+				if (addedSet.set[i] != null)
+				{
+					if(!combineSet.set.Any(c => c == addedSet.set[i]))
+						combineSet.AddElement(addedSet.set[i]);
+				}
 			}
 
 			combineSet.set = Sort(combineSet.set);
@@ -38,48 +55,48 @@ namespace Lab3_1
 			Console.Write("Set: ");
 			for(int i = 0; i < this.set.Length; i++)
 			{
-				Console.Write($"{this.set[i]}");
-				if (i != this.set.Length - 1)
-					Console.Write(", ");
+				if (this.set[i] != null)
+				{
+					Console.Write($"{this.set[i]}, ");
+				}
 			}
 				
 			Console.WriteLine();
 		}
 
-		public void AddElement(double element)
+		public void AddElement(double? element)
 		{
 			if(!this.IsSetElement(element))
 			{
-				Set changedSet = new Set(this.set.Length + 1);
-
 				for(int i = 0; i < this.set.Length; i++)
 				{
-					changedSet.set[i] = this.set[i];
+					if(this.set[i] == null)
+					{
+						this.set[i] = element;
+						this.set = Sort(this.set);
+						return;
+					}
 				}
 
-				changedSet.set[this.set.Length] = element;
-
-				this.set = Sort(changedSet.set);
+				Console.WriteLine("Множество заполнено. Невозможно добавить элемент");
 			}
 		}
 
-		public void DeleteElement(double element)
+		public void DeleteElement(double? element)
 		{
-			if (this.IsSetElement(element))
+			if(this.IsSetElement(element))
 			{
-				Set changedSet = new Set(this.set.Length - 1);
-
-				for (int i = 0, j = 0; i < this.set.Length; i++, j++)
+				for(int i = 0; i < this.set.Length; i++)
 				{
 					if (this.set[i] == element)
 					{
-						j--;
+						this.set[i] = null;
+						break;
 					}
-					else
-						changedSet.set[j] = this.set[i];
+						
 				}
 
-				this.set = changedSet.set;
+				this.set = Sort(this.set);
 			}
 			else
 				Console.WriteLine("Нет такого элемента");
@@ -107,17 +124,16 @@ namespace Lab3_1
 			return result;
 		}
 
-
-		private bool IsSetElement(double element)
+		private bool IsSetElement(double? element)
 		{
 			if (this.set.Any(x => x == element))
 				return true;
 			return false;
 		}
 
-		private double[] Sort(double[] set)
+		private double?[] Sort(double?[] set)
 		{
-			double temp;
+			double? temp;
 			
 			for(int i = 0; i < set.Length - 1; i++)
 			{
