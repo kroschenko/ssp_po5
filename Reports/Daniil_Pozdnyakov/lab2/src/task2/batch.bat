@@ -1,0 +1,1 @@
+D:\repos\spp\lab2.2\bin\Debug\net5.0\lab2.2.5.exe "cp -fi a.txt b.txt"
