@@ -1,0 +1,1 @@
+[{"word1":"tree", "word2":"дерово"}, {"word1":"potato", "word2":"картошка"}, {"word1":"door", "word2":"дверь"}, {"word1":"next", "word2":"следущий"}]
