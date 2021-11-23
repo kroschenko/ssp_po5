@@ -7,7 +7,7 @@ namespace lab3._1._9
     class Set
     {
         private List<double> list = new List<double>();
-        public List<double> List
+        public List<double> _List
         {
             get 
             { 
@@ -27,33 +27,35 @@ namespace lab3._1._9
             Console.WriteLine();
         }
 
-        public void Crossing(List<double> lst1, List<double> lst2)
+        public void Crossing(Set lst1, Set lst2)
         {
-            List<double> res = lst1.Union(lst2).ToList();
-            List.AddRange(res);
-            List.Sort();
+            List<double> res = lst1._List.ToList().Intersect(lst2._List.ToList()).ToList();
+            _List.AddRange(res);
+            _List.Sort();
         }
 
-        public void FindElement(double element)
+        public bool FindElement(double element)
         {
-            if(List.Exists(x => x == element))
-            {
-                Console.WriteLine("Элемент {0} найден", element);
-            }
-            else
-                Console.WriteLine("Элемент {0} не найден", element);
+            return _List.Exists(x => x == element);
         }
 
         public void AddElement(double element, int position)
         {
-            position--;
-            List.Insert(position, element);
+            if (!FindElement(element))
+            {
+                position--;
+                _List.Insert(position, element);
+            }
+            else
+            {
+                Console.WriteLine("Такой элемент уже существует!");
+            }
         }
 
-        public void DeleteElement(int position)
+        public void DeleteElement(double element)
         {
-            position--;
-            List.RemoveAt(position);
+            int index = _List.FindIndex(x => x == element);
+            _List.RemoveAt(index);
         }
 
         public override bool Equals(object obj)
@@ -64,19 +66,19 @@ namespace lab3._1._9
             if ((set as Set) == null)
                 return false;
 
-            return set.List == List;
+            return set._List == _List;
         }
 
         public override string ToString()
         {
             string str = "";
-            if (List == null)
+            if (_List == null)
                 return base.ToString();
             else
             {
-                for(int i = 0; i < List.Count; i++)
+                for(int i = 0; i < _List.Count; i++)
                 {
-                    str += List[i] + "  ";
+                    str += _List[i] + "  ";
                 }
             }
             return str;
@@ -90,17 +92,27 @@ namespace lab3._1._9
         public Set(int Size)
         {
             Random temp = new Random();
+            double[] arr = new double[Size];
             for (int i = 0; i < Size; i++)
             {
-                list.Add(temp.NextDouble() * 20);
+                arr[i] = Math.Round(temp.NextDouble() * 20, 1);
+            }
+
+            double[] tempArr = arr.Distinct().ToArray();
+
+            for (int i = 0; i < tempArr.Count(); i++)
+            {
+                _List.Add(tempArr[i]);
             }
         }
 
-        public Set(int Size, double[] arr)
+        public Set(double[] arr)
         {
-            for (int i = 0; i < Size; i++)
+            double[] tempArr = arr.Distinct().ToArray();
+
+            for (int i = 0; i < tempArr.Length; i++)
             {
-                list.Add(arr[i]);
+                list.Add(tempArr[i]);
             }
         }
     }
