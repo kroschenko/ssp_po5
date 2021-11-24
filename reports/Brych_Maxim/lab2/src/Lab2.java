@@ -51,8 +51,6 @@ public class Lab2 {
             }
             System.out.println("Initial Mappings are: " + map);
             reader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -75,8 +73,6 @@ public class Lab2 {
                 if (line != null) 
                     System.out.println(reader.readLine());
             reader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
