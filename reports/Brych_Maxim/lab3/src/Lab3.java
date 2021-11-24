@@ -19,22 +19,29 @@ public class Lab3 {
         Triangle triangle = new Triangle();
         triangle.setTriangle(3f, 4f, 5f);
 
-        Triangle triangle2 = new Triangle(3f, 4f, 5f);
+        Triangle triangle2 = new Triangle(0f, 4f, 5f);
 
         Triangle triangle3 = new Triangle();
         triangle3.setCathet_1(5f);
         triangle3.setCathet_2(6f);
         triangle3.setHypotenuse(7f);
+
         Triangle[] triangles = new Triangle[]{triangle, triangle2, triangle3};
         for (int i = 0; i < triangles.length; i++) {
+            if (!triangles[i].isValid()) {
+                System.out.println("У Треугольника №" + (i + 1) + " Некоректно введены стороны");
+                continue;
+            }
             System.out.println("Треугольник №" + (i + 1) + " :" + triangles[i]);
-            if (triangles[0].isRectangular()) System.out.println("Треугольник №" + (i + 1) + " - прямоугольный");
+            if (triangles[i].isRectangular()) System.out.println("Треугольник №" + (i + 1) + " - прямоугольный");
             else System.out.println("Треугольник №" + (i + 1) + " - непрямоугольный");
             System.out.println("Периметр треугольника №" + (i + 1) + " :" + triangles[i].Perimeter());
             System.out.format("Площадь треугольника №%d : %.3f \n", i+1 , triangles[i].Square());
         }
-        if (triangle.equals(triangle2)) System.out.println("Треугольники 1 и 2 - равны");
-        else System.out.println("Треугольники 1 и 2 - не равны");
+        if (triangle.isValid() && triangle2.isValid()) {
+            if (triangle.equals(triangle2)) System.out.println("Треугольники 1 и 2 - равны");
+            else System.out.println("Треугольники 1 и 2 - не равны");
+        }
     }
 
     private static void Task2(int routeNumber) {

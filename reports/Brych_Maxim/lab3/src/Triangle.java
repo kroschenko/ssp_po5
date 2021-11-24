@@ -35,7 +35,12 @@ public class Triangle {
     public boolean isRectangular()
     {
         return Math.pow(cathet_1, 2) + Math.pow(cathet_2, 2)
-                        == Math.pow(hypotenuse, 2);
+                == Math.pow(hypotenuse, 2);
+    }
+
+    public boolean isValid()
+    {
+        return (cathet_1 > 0) && (cathet_2 > 0) && (hypotenuse > 0);
     }
 
     public Float getCathet_1() {
