@@ -8,10 +8,8 @@ import java.util.stream.Stream;
 
 public final class Restaurant {
 
-    public Long makeAnOrder(Burger burger, Drink drink, Package pack) {
-        return Stream.of(burger, drink, pack)
-                .map(Position::price)
-                .mapToLong(Long::valueOf)
-                .sum();
+    public Long makeAnOrder(Order order) {
+        return order.totalPrice();
     }
+
 }

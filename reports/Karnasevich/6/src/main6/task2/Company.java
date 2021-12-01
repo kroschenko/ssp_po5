@@ -1,7 +1,6 @@
 package main6.task2;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 public final class Company {
@@ -27,26 +26,11 @@ public final class Company {
                 .forEach(e -> e.assignManager(employee.getManager().orElse(null)));
     }
 
-    public void pringSalaryReport() {
-        var group = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
-        for (var list : group.entrySet()) {
-            printSalaryReport(list.getKey(), list.getValue());
-        }
-    }
-
-    public void printSalaryReport(Department department, List<Employee> employees) {
-        var leaders =
-                employees.stream()
-                        .filter(x -> !x.hasManager() || x.getManager().isPresent() && !x.getManager().get().getDepartment().equals(department))
-                        .collect(Collectors.toList());
-        var rest = new HashSet<>(employees);
-        while (!rest.isEmpty()) {
-            leaders.forEach(rest::remove);
-            leaders.forEach(System.out::println);
-            leaders = leaders.stream()
-                    .flatMap(x -> x.getSubordinates().stream())
-                    .filter(x -> x.getDepartment().equals(department))
-                    .collect(Collectors.toList());
+    public void printSalaryReport() {
+        var it = new FlattenIterator<>(new HierarchicalEmployeeIterator(employees));
+        while (it.hasNext()){
+            var next = it.next();
+            System.out.println(next);
         }
     }
 }

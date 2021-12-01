@@ -18,6 +18,6 @@ public final class Main {
         soap.assignManager(gray);
         le.assignManager(gray);
         var company = new Company(Arrays.asList(ivan, liza, tuan, gray, soap, le));
-        company.pringSalaryReport();
+        company.printSalaryReport();
     }
 }

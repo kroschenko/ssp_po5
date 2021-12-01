@@ -1,7 +1,6 @@
 package main6.task1;
 
-import main6.task1.burger.ClassicBurger;
-import main6.task1.burger.VeganBurger;
+import main6.task1.burger.*;
 import main6.task1.drink.Cola;
 import main6.task1.drink.Tea;
 import main6.task1.pack.OnSide;
@@ -14,8 +13,15 @@ public final class Main {
     public static void main(String[] args) {
         var rest = new Restaurant();
         var prices = List.of(
-                rest.makeAnOrder(new VeganBurger(), new Cola(), new OnSide()),
-                rest.makeAnOrder(new ClassicBurger(), new Tea(), new OutSide())
+                rest.makeAnOrder(Order.builder()
+                        .addBugrer(new VeganBurger())
+                        .addDrink(new Cola())
+                        .build()),
+                rest.makeAnOrder(Order.builder()
+                        .addBugrer(new PorkBurger())
+                        .addDrink(new Tea())
+                        .withPackage(new OutSide())
+                        .build())
         );
         System.out.println(prices);
     }
