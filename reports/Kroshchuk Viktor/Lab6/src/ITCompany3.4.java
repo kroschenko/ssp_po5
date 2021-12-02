@@ -1,5 +1,4 @@
-package com.company;
-import java.util.Iterator;
+package lab3_3;
 
 class ITCompany {
 
@@ -14,12 +13,12 @@ class ITCompany {
     /* helper methods */
 
     private void logSalaries(Employee employee) {
-        Iterator<Employee> iterator = employee.iterator();
-        while (iterator.hasNext()) {
-            Employee next = iterator.next();
+        while (employee.hasNext()) {
+            Employee next = employee.next();
             next.logSalary();
             logSalaries(next);
         }
+        employee.reset();
     }
 
     public void logSalaries() {

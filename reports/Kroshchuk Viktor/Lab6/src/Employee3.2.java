@@ -1,6 +1,6 @@
-package com.company;
+package lab3_3;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 
 enum WorkDepartment {
     LEAD,
@@ -15,7 +15,7 @@ enum WorkField {
     MANAGEMENT
 }
 
-class Employee implements Iterable<Employee> {
+class Employee implements EmployeeIterator {
 
     public static double MONEY_PER_PROJECT = 200;
 
@@ -23,6 +23,9 @@ class Employee implements Iterable<Employee> {
     private int numProjects;
     private WorkDepartment department;
     private WorkField field;
+
+
+    int position = 0;
 
     private ArrayList<Employee> subordinates = new ArrayList<>();
 
@@ -104,10 +107,26 @@ class Employee implements Iterable<Employee> {
         return subordinates;
     }
 
-    /* Iterable */
+    @Override
+    public boolean hasNext() {
+        return position < subordinates.size();
+    }
 
     @Override
-    public Iterator<Employee> iterator() {
-        return new EmployeeIterator(subordinates);
+    public Employee next() {
+        if (!hasNext()) {
+            return null;
+        }
+        Employee employee = subordinates.get(position);
+        position++;
+        return employee;
     }
+
+    @Override
+    public void reset() {
+        position = 0;
+    }
+
+    /* Iterable */
+
 }

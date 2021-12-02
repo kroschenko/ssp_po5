@@ -1,24 +1,9 @@
-package com.company;
-import java.util.Iterator;
-import java.util.List;
+package lab3_3;
 
-public class EmployeeIterator implements Iterator<Employee> {
-    private List<Employee> files;
-    private int position;
+public interface EmployeeIterator {
+    boolean hasNext();
 
-    public EmployeeIterator(List<Employee> files) {
-        this.files = files;
-        position = 0;
-    }
+    Employee next();
 
-    @Override
-    public boolean hasNext() {
-        return position < files.size();
-    }
-
-    @Override
-    public Employee next() {
-        return files.get(position++);
-    }
-
+    void reset();
 }
