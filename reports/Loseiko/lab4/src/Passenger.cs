@@ -4,45 +4,101 @@ using System.Text;
 
 namespace lab4._3._9
 {
-    class Passenger
+    public class Passenger : Person
     {
-        int Bill { get; set; }
+        private List<Order> Orders = new List<Order>();
+        private int Bill = 0;
+        private Check Check = null;
 
-        public Passenger()
+        public Passenger(int Age, string Name) : base(Age, Name)
         {
-            Bill = 100;
+
         }
-        public void Application(string DepartureStation, string DestinationStation, DateTime date, List<Train> train)
-        {
-            for(int i = 0; i < train.Count; i++)
-            {
-                int index1 = train[i].Stations.IndexOf(DepartureStation);
-                int index2 = train[i].Stations.IndexOf(DestinationStation);
 
-                if (index1 != -1 && index2 != -1)
+        public Passenger(int Age, string Name, int Bill) : base(Age, Name)
+        {
+            this.Bill = Bill;
+        }
+
+        public Passenger(int Age, string Name, int Bill, List<Order> Orders) : base(Age, Name)
+        {
+            this.Bill = Bill;
+            this.Orders = Orders;
+        }
+
+        public Passenger(int Age, string Name, int Bill, List<Order> Orders, Check Check) : base(Age, Name)
+        {
+            this.Bill = Bill;
+            this.Orders = Orders;
+            this.Check = Check;
+        }
+
+        public void SetOrders(List<Order> orders)
+        {
+            Orders = orders;
+        }
+
+        public List<Order> GetOrders()
+        {
+            return Orders;
+        }
+
+        public void SetCheck(Check check)
+        {
+            Check = check;
+        }
+
+        public Check GetCheck()
+        {
+            return Check;
+        }
+
+        public void SetBill(int bill)
+        {
+            Bill = bill;
+        }
+
+        public int GetBill()
+        {
+            return Bill;
+        }
+
+        public void AddOrder(Order order)
+        {
+            Orders.Add(order);
+        }
+
+        public void RemoveOrder(Order order)
+        {
+            Orders.Remove(order);
+        }
+
+        public bool AddCheck(Train train)
+        {
+            if(Bill - train.GetPrice() >= 0)
+            {
+                Bill -= train.GetPrice();
+                return true;
+            }
+            return false;
+        }
+
+        public bool RequestOrderAndCheck(RailwayTicketOffice railwayTicketOffice, string StartStation, string EndStation, TrainStation trainStation)
+        {
+            var temp = railwayTicketOffice.TrainSearch(StartStation, EndStation);
+            if (temp.Item1 != -1)
+            {
+                Order order = railwayTicketOffice.ProcessOrder(this, temp.Item2);
+
+                if (order == null)
                 {
-                    if (index1 < index2)
-                    {
-                        if (train[i].TrainTime[index1] > date)
-                        {
-                            train[i].Print();
-                            continue;
-                        }
-                    }
+                    return false;
                 }
-            }
-        }
 
-        public void TrainSelection(int Num, List<Train> train)
-        {
-            Num--;
-            if(Bill - train[Num].Price < 0)
-            {
-                Console.WriteLine("На счёте на хватает средств!");
-                return;
+                AddOrder(order);
+                return AddCheck(temp.Item2);
             }
-            Bill -= train[Num].Price;
-            Console.WriteLine($"Остаток на счёте {Bill}");
+            return false;
         }
     }
 }
