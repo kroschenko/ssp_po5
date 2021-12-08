@@ -1,0 +1,5 @@
+1 Audi A4 2011 silver 45 4598aa-7 11 ivanov 1234
+2 Mazda RX-7 1997 yellow 70 1106jp-2 22 null null
+3 Toyota Prius 2018 red 50 5695ao-1 33 vasyliev 1111
+4 Audi Q7 2019 black 65 4786ae-4 44 null null
+5 Mercedes-Benz e200 2021 black 70 1010aa-7 55 markov null
