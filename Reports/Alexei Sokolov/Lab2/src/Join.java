@@ -35,9 +35,7 @@ public class Join {
 			System.out.println("Неизвестная утилита");
 			return;
 		}
-		if(args[lenght-2].equals("-")) {
-
-		}
+		
 		String way_first;
 		String way_two;
 		String way_result;
