@@ -13,6 +13,6 @@ public class musicInst
     }
 
     public void show() {
-        System.out.println();
+
     }
 }
