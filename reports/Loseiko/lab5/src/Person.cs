@@ -4,7 +4,7 @@ using System.Text;
 
 namespace lab4._3._9
 {
-    public class Person
+    public abstract class Person
     {
         private int Age = 0;
         private string Name;

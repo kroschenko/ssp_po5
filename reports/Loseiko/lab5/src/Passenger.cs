@@ -10,7 +10,7 @@ namespace lab4._3._9
         private int Bill = 0;
         private Check Check = null;
 
-        public Passenger(int Age, string Name) : base(Age, Name)
+        public Passenger(int Age, string Name) : base (Age, Name)
         {
 
         }

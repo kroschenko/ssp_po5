@@ -36,6 +36,7 @@ namespace lab4._3._9
             {
                 dateTimes.Add(RandomDateTime(DateTime.Now, maxdate));
             }
+            dateTimes.Sort();
             return dateTimes;
         }
         static void Main(string[] args)
