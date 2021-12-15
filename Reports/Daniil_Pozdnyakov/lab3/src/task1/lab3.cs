@@ -6,7 +6,7 @@ namespace lab3._1._5
     {
         static void Main(string[] args)
         {
-            int[] arr1 = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            int[] arr1 = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 8 };
             int[] arr2 = new int[] { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
 
             SetOfIntegers Set1 = new SetOfIntegers(arr1);
@@ -24,7 +24,7 @@ namespace lab3._1._5
             Set2.DeleteElementOfSet(52);
             Set2.Print();
 
-            Set1.AddElementOfSet(17);
+            Set1.AddElementOfSet(5);
             Set1.Print();
 
             Console.WriteLine(Set1.Equals(Set2));
