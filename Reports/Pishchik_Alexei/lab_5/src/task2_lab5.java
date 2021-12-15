@@ -1,14 +1,19 @@
-public class task2_lab5 {
+import java.util.ArrayList;
+import java.util.List;
 
+public class task2lab5 {
     public static void main(String[] args) {
-        Instrument instrument[] = new Instrument[3];
-        instrument[0] = new Wind(5,120,10);
-        instrument[1] = new Percussion(2, 800, 100);
-        instrument[2] = new Stringed (6, 160, 7);
+        List<Instrument> instrument= new ArrayList<>();
+        instrument.add(new Wind(5,120,10));
+        instrument.add(new Percussion(2, 800, 100));
+        instrument.add(new Stringed (6, 160, 7));
         System.out.println("Orchestra is: ");
-        instrument[0].play(3, 0.7);
-        instrument[1].play(5, 0.5);
-        instrument[2].play(10, 0.8);
+        instrument.get(0).play(3, 0.7);
+        instrument.get(1).play(5, 0.5);
+        instrument.get(2).play(10, 0.8);
+        for (Instrument inst: instrument) {
+            System.out.println(inst.toString());
+        }
     }
 }
 
@@ -28,6 +33,15 @@ class Percussion extends Instrument {
     void setSize(){
         this.size = 5;
     }
+
+    @Override
+    public String toString() {
+        return "Percussion{" +
+                "size=" + size +
+                ", weight=" + weight +
+                ", typeNumber=" + typeNumber +
+                '}';
+    }
 }
 
 class Stringed extends Instrument {
@@ -46,6 +60,15 @@ class Stringed extends Instrument {
     void checkNumber(int stringsNumber){
         this.stringsNumber += stringsNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Stringed{" +
+                "stringsNumber=" + stringsNumber +
+                ", weight=" + weight +
+                ", typeNumber=" + typeNumber +
+                '}';
+    }
 }
 
 abstract class Instrument {
@@ -53,6 +76,14 @@ abstract class Instrument {
     double typeNumber;
 
     abstract void play(double time, double speed);
+
+    @Override
+    public String toString() {
+        return "Instrument{" +
+                "weight=" + weight +
+                ", typeNumber=" + typeNumber +
+                '}';
+    }
 }
 
 class Wind extends Instrument {
@@ -70,5 +101,14 @@ class Wind extends Instrument {
 
     void getValue(int value){
         this.value -= value;
+    }
+
+    @Override
+    public String toString() {
+        return "Wind{" +
+                "weight=" + weight +
+                ", typeNumber=" + typeNumber +
+                ", value=" + value +
+                '}';
     }
 }
