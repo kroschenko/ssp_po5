@@ -1,0 +1,4 @@
+0	|Mercedes	|S	|2015	|Black	|15000	|2345	|9349	|Joseph I. O.	|2334578
+1	|BMW		|x3	|2012	|White	|13000	|4565	|6788
+2	|Mercedes	|W168	|2000	|Silver	|5000	|3444	|3456	|Clark B. A.	|3434566
+3	|Ford		|Focus	|2015	|Blue	|10400	|4542	|4544
