@@ -1,0 +1,21 @@
+﻿Shostak M.A.
+5541
+21
+BMW
+1998
+98541
+false
+Kondratuk I.O.
+5471
+6
+BMW
+2000
+101474
+true
+Sergievich D.A.
+1458
+1
+Volkswagen
+2010
+105471
+false
