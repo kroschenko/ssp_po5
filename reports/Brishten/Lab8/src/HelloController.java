@@ -2,6 +2,7 @@ package com.example.labs;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -13,11 +14,16 @@ public class HelloController {
     private Long n;
     public Label messageText;
     public TextField valueText;
+    @FXML
+    public Button Start, Continue, Stop, Pause;
     final Object lock = new Object();
     boolean paused;
 
     @FXML
     protected void onStartButtonClick() {
+        Start.setDisable(true);
+        Pause.setDisable(false);
+        Stop.setDisable(false);
         if (thread != null) {
             thread.interrupt();
         }
@@ -46,6 +52,9 @@ public class HelloController {
                         }
                     }
                 }
+                Start.setDisable(false);
+                Pause.setDisable(true);
+                Stop.setDisable(true);
             });
             thread.start();
         }
@@ -58,6 +67,7 @@ public class HelloController {
     protected void onPauseButtonClick() {
         messageText.setText(result.toString());
         paused = true;
+        Continue.setDisable(false);
     }
 
     @FXML
@@ -74,5 +84,8 @@ public class HelloController {
     @FXML
     protected void onStopButtonClick() {
         thread.interrupt();
+        Start.setDisable(false);
+        Pause.setDisable(true);
+        Continue.setDisable(true);
     }
 }
