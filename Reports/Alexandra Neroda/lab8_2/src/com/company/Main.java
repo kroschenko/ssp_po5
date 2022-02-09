@@ -41,6 +41,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         calculator.start();
         primaryStage.setTitle("Lab 8");
+        pauseThread.setDisable(true);
+        stopThread.setDisable(true);
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
@@ -60,6 +62,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         calculateResult.setOnAction(e -> {
+            pauseThread.setDisable(false);
+            stopThread.setDisable(false);
             startTask();
         });
         pauseThread.setOnAction(e -> {
@@ -67,6 +71,8 @@ public class Main extends Application {
         });
         stopThread.setOnAction(e -> {
             done();
+            pauseThread.setDisable(true);
+            stopThread.setDisable(true);
         });
     }
     public void startTask() {
@@ -111,7 +117,7 @@ public class Main extends Application {
             final String status = "Calculating k = " + k + ", sum = " + sum;
             Platform.runLater(() -> labelForResult.setText(status));
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
