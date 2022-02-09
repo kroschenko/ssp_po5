@@ -13,10 +13,10 @@ public class Program {
         try {
             dbConnection = getDBConnection();
             statement = dbConnection.createStatement();
-            //insertInTable(statement);
-            //selectFromTable(statement);
-            //editOfTable(statement);
-            //deleteFromTable(statement);
+            insertInTable(statement);
+            selectFromTable(statement);
+            editOfTable(statement);
+            deleteFromTable(statement);
             
         } catch (SQLException e) {
             e.printStackTrace();
@@ -82,77 +82,3 @@ public class Program {
     }
 
 }
-
-        /* Scanner in = new Scanner(System.in); 
-        int key;
-        String table = null;
-        Boolean flag = true;
-        */
-
-        /*try{
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            System.out.println("Connection succesfull!");
-        } catch(Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/java", "root", "");
-            System.out.println("Connected");
-            conn.close();
-        } catch(SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            if (statement != null) {
-                statement.close();
-            }
-            if (dbConnection != null) {
-                dbConnection.close();
-            }
-        }
-        */
-
-        //table = getTableName(in);
-            /*while (flag)
-            {
-                System.out.println("1 - View\n2 - Adding\n3 - Edit\n4 - Deleting\n5 - Tables\n6 - Exit");
-                key = in.nextInt();
-                in.nextLine();
-                switch (key) {
-                    case 1:
-                        selectFromTable(statement, table);
-                        break;
-                    case 2:
-                        insertInTable();
-                        break;
-                    case 3:
-                        editOfTable();
-                        break;
-                    case 4:
-                        deleteFromTable();
-                        break;
-                    case 5:
-                        flag = false;
-                        break;
-                    default:
-                        System.out.println("Error, please, enter a number from 1 to 5");
-                        break;
-                }
-            }*/
-
-                /*private static String getTableName(Scanner in) {
-        Map<Integer, String> tables = new HashMap<Integer, String>();
-            int key_table = 0;
-            tables.put(1, "clients");
-            tables.put(2, "manufactures");
-            tables.put(3, "orders");
-            tables.put(4, "orders_summary");
-            tables.put(5, "products");
-            while (key_table < 1 || key_table > 5)
-            {
-                System.out.println("Enter a number of table: ");
-                System.out.println(tables.toString());
-                key_table = in.nextInt();
-                in.nextLine();
-            }
-            return tables.get(key_table);
-    }*/
