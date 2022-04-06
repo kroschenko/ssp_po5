@@ -11,7 +11,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 public class HelloApplication extends Application {
-    double currentValue = 0;
+    double currentValue = 1;
     int currentIteration = 0;
     Text sum = new Text("");
     TextField inputCount = new TextField();
@@ -65,6 +65,7 @@ public class HelloApplication extends Application {
     }
 
     public void startCalculate() {
+        start.setDisable(true);
         pause.setDisable(false);
         stop.setDisable(false);
 
@@ -81,8 +82,8 @@ public class HelloApplication extends Application {
                         sum.setText(Double.toString(this.currentValue));
                         for (int i = 0; i <= count; i++) {
                             try {
-                                this.currentValue += 1 / Math.pow(2.0, i);
-                                Thread.sleep(500);
+                                this.currentValue =  this.currentValue*(1.0/2.0);
+                                Thread.sleep(10);
                                 sum.setText(Double.toString(this.currentValue));
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
@@ -90,7 +91,11 @@ public class HelloApplication extends Application {
                         }
                     }
                     pause.setDisable(true);
-                    inputCount.setText("");
+                    stop.setDisable(true);
+                    start.setDisable(false);
+                    this.currentValue = 0;
+                    this.currentIteration = 0;
+                    backgroundThread = null;
                 } catch (NumberFormatException e) {
                     sum.setText("Error in input!!!");
                     pause.setDisable(true);
@@ -103,13 +108,14 @@ public class HelloApplication extends Application {
         }
     }
 
+
     public void stopCalculate() {
         backgroundThread.stop();
         this.currentValue = 0;
-        this.sum.setText("");
         this.currentIteration = 0;
-        inputCount.setText("");
         backgroundThread = null;
+        this.sum.setText("");
+        inputCount.setText("");
     }
 
     public static void main(String[] args) {
