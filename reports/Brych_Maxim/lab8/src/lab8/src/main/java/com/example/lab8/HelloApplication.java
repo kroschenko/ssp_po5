@@ -1,6 +1,7 @@
 package com.example.lab8;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,7 +12,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 public class HelloApplication extends Application {
-    double currentValue = 1;
+    Double currentValue;
+    Double tempValue = 1.0;
     int currentIteration = 0;
     Text sum = new Text("");
     TextField inputCount = new TextField();
@@ -20,6 +22,10 @@ public class HelloApplication extends Application {
     Button pause = new Button();
     Button stop = new Button();
     GridPane grid;
+    long count;
+    long i;
+
+    final Object lock = new Object();
 
     @Override
     public void init() {
@@ -68,50 +74,49 @@ public class HelloApplication extends Application {
         start.setDisable(true);
         pause.setDisable(false);
         stop.setDisable(false);
-
         if (backgroundThread != null) {
-            backgroundThread.resume();
-        } else {
-            Thread task = new Thread(() -> {
-                try {
-                    int count = Integer.parseInt(inputCount.getText());
-                    start.setDisable(true);
-                    if (count == 0) {
-                        sum.setText(Double.toString(1.0));
-                    } else {
-                        sum.setText(Double.toString(this.currentValue));
-                        for (int i = 0; i <= count; i++) {
-                            try {
-                                this.currentValue =  this.currentValue*(1.0/2.0);
-                                Thread.sleep(10);
-                                sum.setText(Double.toString(this.currentValue));
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+            backgroundThread.interrupt();
+        }
+        try {
+            count = Long.parseLong(inputCount.getText());
+            if (count < 0) {
+                throw new NumberFormatException();
+            }
+            i = 0;
+            currentValue = 0.0;
+//            paused = false;
+            backgroundThread = new Thread(() -> {
+                while (i <= count) {
+                    synchronized (lock) {
+                        try {
+                            Thread.sleep(1);
+//                            if (paused) {
+//                                lock.wait();
+//                            } else {
+                                currentValue += 1 / Math.pow(2, i);
+                                i += 1;
+//                            }
+                            Platform.runLater(() -> sum.setText(currentValue.toString() + " Итерация: " + (i - 1) ));
+                        } catch (InterruptedException ignored) {
+                            break;
                         }
                     }
-                    pause.setDisable(true);
-                    stop.setDisable(true);
-                    start.setDisable(false);
-                    this.currentValue = 0;
-                    this.currentIteration = 0;
-                    backgroundThread = null;
-                } catch (NumberFormatException e) {
-                    sum.setText("Error in input!!!");
-                    pause.setDisable(true);
-                    start.setDisable(true);
                 }
+                start.setDisable(false);
+                pause.setDisable(true);
+                stop.setDisable(true);
             });
-            backgroundThread = new Thread(task);
-            backgroundThread.setDaemon(true);
             backgroundThread.start();
+        }
+        catch (NumberFormatException e) {
+            sum.setText("Введите целое неотрицательное число!");
         }
     }
 
 
     public void stopCalculate() {
         backgroundThread.stop();
-        this.currentValue = 0;
+        this.currentValue = (double) 0;
         this.currentIteration = 0;
         backgroundThread = null;
         this.sum.setText("");
