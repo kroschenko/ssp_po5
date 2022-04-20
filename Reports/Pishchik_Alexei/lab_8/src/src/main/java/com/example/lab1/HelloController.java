@@ -3,36 +3,34 @@ package com.example.lab1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-import java.util.ResourceBundle;
 
 public class HelloController {
     private Thread calculator;
     boolean isRunning;
 
     @FXML
-    private TextField textFildN;
+    public TextField textFildN;
 
     @FXML
-    private Button calc;
+    public Button calc;
 
     @FXML
-    private Button resume;
+    public Button resume;
 
     @FXML
-    private Button pause;
+    public Button pause;
 
     @FXML
-    private Button stop;
+    public Button stop;
 
     @FXML
     private Text result;
 
     @FXML
-    private Text message;
+    public Text message;
 
     @FXML
     void initialize() {
@@ -66,6 +64,7 @@ public class HelloController {
             message.setText("pause");
             calc.setDisable(true);
             resume.setDisable(false);
+            pause.setDisable(true);
             isRunning = false;
         }
     }
@@ -75,6 +74,8 @@ public class HelloController {
         if (!isRunning) {
             message.setText("calculating");
             calculator.resume();
+            resume.setDisable(true);
+            pause.setDisable(false);
             isRunning = true;
         }
     }

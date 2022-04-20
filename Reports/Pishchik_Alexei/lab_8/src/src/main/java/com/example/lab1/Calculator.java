@@ -1,9 +1,10 @@
 package com.example.lab1;
 
-import static java.lang.Math.pow;
+import javafx.application.Platform;
 
 public class Calculator extends Thread {
     private int n;
+    private Double sum = 0.0;
     private final HelloController controller;
 
     public Calculator(int n, HelloController controller) {
@@ -14,19 +15,29 @@ public class Calculator extends Thread {
     @Override
     public void run() {
         int k = 1;
-        double sum = 0;
         try {
             while (k < n && !isInterrupted()) {
-                controller.updateResult(sum);
-                double s = pow(-1, k - 1) * 1 / pow(k, 2);
+                Platform.runLater(() -> controller.updateResult(sum));
+                double s = Math.pow(-1, k - 1) * 1 / Math.pow(k, 2);
                 sum += s;
                 k++;
-                controller.updateResult(sum);
+                Platform.runLater(() -> controller.updateResult(sum));
 
-                sleep(300);
+                sleep(10);
+
+                if(k == n) {
+                    controller.pause.setDisable(true);
+                    controller.resume.setDisable(true);
+                    controller.stop.setDisable(true);
+                    controller.isRunning = false;
+                    controller.textFildN.setText("Enter n");
+                    controller.calc.setDisable(false);
+                }
             }
         } catch (InterruptedException exception) {
             System.out.println("Interrupted");
         }
     }
 }
+
+
