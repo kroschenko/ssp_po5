@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-720" maxWidth="-540" minHeight="-720" minWidth="-540" prefHeight="545.0" prefWidth="759.0" style="-fx-background-color: #e6e6fa;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.ClientGUI">
+    <children>
+        <TextField fx:id="textNum" layoutX="292.0" layoutY="425.0" prefHeight="26.0" prefWidth="154.0" promptText="Enter count wands" />
+        <TextField fx:id="textIp" layoutX="20.0" layoutY="10.0" prefHeight="26.0" prefWidth="154.0" promptText="Enter IP" />
+        <TextField fx:id="textPort" layoutX="200.0" layoutY="10.0" prefHeight="26.0" prefWidth="154.0" promptText="Enter PORT" />
+        <Button fx:id="take" layoutX="320.0" layoutY="493.0" mnemonicParsing="false" onAction="#takeClick" prefHeight="30.0" prefWidth="90.0" text="Take" />
+        <Button fx:id="connected" layoutX="20.0" layoutY="50.0" mnemonicParsing="false" onAction="#connectedClick" prefHeight="30.0" prefWidth="90.0" text="connected" />
+        <Text fx:id="result" layoutX="400.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="354.0" />
+        <Text fx:id="place" layoutX="292.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="| | | | | | | | | | | | | | | | | | | |" wrappingWidth="450.0" />
+        <Text fx:id="size" layoutX="492.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20" wrappingWidth="40.0" />
+      <TextField fx:id="name" layoutX="200.0" layoutY="53.0" prefHeight="24.0" prefWidth="154.0" promptText="Name" />
+    </children>
+</AnchorPane>
