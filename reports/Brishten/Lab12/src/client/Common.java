@@ -36,26 +36,4 @@ public class Common {
             System.out.println("I/O Error!");
         }
     }
-
-    public static String readString(java.io.InputStream stream) {
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(stream));
-            return br.readLine();
-        }
-        catch (IOException ex) {
-            System.out.println("I/O Error!");
-        }
-        return null;
-    }
-
-    public static void writeString(java.io.OutputStream stream, String string) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(stream));
-            writer.write(string + "\n");
-            writer.flush();
-        }
-        catch (IOException ex) {
-            System.out.println("I/O Error!");
-        }
-    }
 }
