@@ -1,0 +1,23 @@
+#it's comment
+DEFINE param1 25
+DEFINE param2 15
+PUSH param1
+PUSH param2
++
+PRINT
+PUSH 10
+-
+PRINT
+PUSH 2
+*
+PRINT
+PUSH 0
+/
+POP
+PUSH 5
+/
+PRINT
+PUSH 13
++
+SQRT
+PRINT

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab4.Controllers.InfoController">
+    <children>
+
+        <Text fx:id="idGUITEXT" layoutX="136.0" layoutY="270.0" text="ID"/>
+        <Text fx:id="companyGUITEXT" layoutX="136.0" layoutY="241.0" text="Company"/>
+        <Text fx:id="nameGUITEXT" layoutX="136.0" layoutY="212.0" text="Name"/>
+        <Text fx:id="branchesGUITEXT" layoutX="136.0" layoutY="181.0" text="Last Name"/>
+        <Text fx:id="countcompGUITEXT" layoutX="136.0" layoutY="153.0" text="Numbers"/>
+        <Text fx:id="addressGUITEXT" layoutX="136.0" layoutY="121.0" text="Address"/>
+        <Text fx:id="nameofficeGUITEXT" layoutX="136.0" layoutY="91.0" text="Name Office"/>
+        <Text fx:id="fnameGUITEXT" layoutX="136.0" layoutY="60.0" text="First Name"/>
+
+        <Text fx:id="idGUI" layoutX="236.0" layoutY="270.0"/>
+        <Text fx:id="companyGUI" layoutX="236.0" layoutY="241.0"/>
+        <Text fx:id="nameGUI" layoutX="236.0" layoutY="212.0"/>
+        <Text fx:id="branchesGUI" layoutX="236.0" layoutY="181.0"/>
+        <Text fx:id="countcompGUI" layoutX="236.0" layoutY="153.0"/>
+        <Text fx:id="addressGUI" layoutX="236.0" layoutY="121.0"/>
+        <Text fx:id="nameofficeGUI" layoutX="236.0" layoutY="91.0"/>
+        <Text fx:id="fnameGUI" layoutX="236.0" layoutY="60.0"/>
+    </children>
+</AnchorPane>

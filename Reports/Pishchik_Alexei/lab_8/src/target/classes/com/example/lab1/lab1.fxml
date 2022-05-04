@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="330.0" prefWidth="520.0" style="-fx-background-color: #e6e6fa;" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab1.HelloController">
+    <children>
+        <TextField fx:id="textFildN" layoutX="292.0" layoutY="95.0" prefHeight="26.0" prefWidth="154.0" text="Enter n" />
+        <Button fx:id="calc" layoutX="119.0" layoutY="93.0" mnemonicParsing="false" onAction="#calcClick" prefHeight="30.0" prefWidth="90.0" text="calculate" />
+        <Button fx:id="resume" layoutX="119.0" layoutY="176.0" mnemonicParsing="false" onAction="#resumeClick" prefHeight="30.0" prefWidth="90.0" text="resume" />
+        <Button fx:id="pause" layoutX="119.0" layoutY="134.0" mnemonicParsing="false" onAction="#pauseClick" prefHeight="30.0" prefWidth="90.0" text="pause" />
+        <Button fx:id="stop" layoutX="119.0" layoutY="217.0" mnemonicParsing="false" onAction="#stopClick" prefHeight="30.0" prefWidth="90.0" text="stop" />
+        <Text fx:id="result" layoutX="292.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="154.0" />
+        <Text fx:id="message" layoutX="292.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="154.0" />
+    </children>
+</AnchorPane>
