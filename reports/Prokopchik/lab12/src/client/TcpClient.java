@@ -48,7 +48,8 @@ public class TcpClient {
             System.out.println("Неизвестный хост: " + host);
             System.exit(-1);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Ошибка при подключении, сервер занят");
+           // e.printStackTrace();
             System.exit(-1);
         }
     }
