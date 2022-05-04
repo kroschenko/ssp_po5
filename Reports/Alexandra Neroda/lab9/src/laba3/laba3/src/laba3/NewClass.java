@@ -56,6 +56,7 @@ public class NewClass {
             System.out.println("4)DELETE");
             System.out.println("5)SELECT and INSERT index");
             System.out.println("6)CheckInfo");
+            System.out.println("7)Cascade Delete");
             System.out.println("0)Out");
             System.out.print("Input number: ");
             int n = in.nextInt();
@@ -85,9 +86,13 @@ public class NewClass {
                     selins(conn, s, ps, res);
                     break;
                 case 6:
-                    System.out.println("=================Prokat Info=================");
+                    System.out.println("=================Stud Info=================");
                     checkInfo(conn, s, ps, res);
                     break;
+                case 7:
+                    System.out.println("=================Cascade Delete=================");
+                    cascadeDelete(conn, ps);
+                    break;    
                 case 0:
                     System.out.println("End the program...");
                     System.exit(0);
@@ -273,6 +278,69 @@ public class NewClass {
                 System.out.println("Данные спец. и групп успешно удалены!");
             }
             System.out.println("--------------------------------------------------------");
+            System.out.println();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(NewClass.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    static void cascadeDelete(Connection conn, PreparedStatement ps){
+        try {
+            // DELETE
+            Scanner in = new Scanner(System.in);
+            System.out.println("Запрос DELETE... checkinfo");
+            System.out.print("Введите id: ");
+            int di = in.nextInt();
+            
+            String sql_del2 = "DELETE FROM vedomost WHERE id_v=?";
+            ps = conn.prepareStatement(sql_del2);
+            ps.setInt(1, di);
+            int rowsDelete2 = ps.executeUpdate();
+            if (rowsDelete2 > 0) {
+                System.out.println("Данные успешно удалены!");
+            }
+            
+            String sql_del = "DELETE FROM grandsp WHERE id_g=?";
+            ps = conn.prepareStatement(sql_del);
+            ps.setInt(1, di);
+            int rowsDelete = ps.executeUpdate();
+            if (rowsDelete > 0) {
+                System.out.println("Данные успешно удалены!");
+            }
+            
+            String sql_del3 = "DELETE FROM indexes WHERE id=?";
+            ps = conn.prepareStatement(sql_del3);
+            ps.setInt(1, di);
+            int rowsDelete3 = ps.executeUpdate();
+            if (rowsDelete3 > 0) {
+                System.out.println("Данные успешно удалены!");
+            }
+            
+            String sql_del4 = "DELETE FROM predmet WHERE id_p=?";
+            ps = conn.prepareStatement(sql_del4);
+            ps.setInt(1, di);
+            int rowsDelete4 = ps.executeUpdate();
+            if (rowsDelete4 > 0) {
+                System.out.println("Данные успешно удалены!");
+            }
+            
+            String sql_del5 = "DELETE FROM student WHERE id_s=?";
+            ps = conn.prepareStatement(sql_del5);
+            ps.setInt(1, di);
+            int rowsDelete5 = ps.executeUpdate();
+            if (rowsDelete5 > 0) {
+                System.out.println("Данные успешно удалены!");
+            }
+            
+            String sql_delete = "DELETE FROM checkinfo WHERE id_ch=?";
+            ps = conn.prepareStatement(sql_delete);
+            ps.setInt(1, di);
+            int rowsDelete6 = ps.executeUpdate();
+            if (rowsDelete6 > 0) {
+                System.out.println("Данные checkinfo по id = (" + di + ") успешно удалены!");
+            }
+            System.out.println("---------------------------------------------------");
             System.out.println();
             
         } catch (SQLException ex) {
