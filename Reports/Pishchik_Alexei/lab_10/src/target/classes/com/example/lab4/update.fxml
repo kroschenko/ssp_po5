@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.ComboBox?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab4.Controllers.UpDateController">
+   <children>
+      <AnchorPane layoutX="126.0" layoutY="14.0" prefHeight="389.0" prefWidth="222.0">
+         <children>
+            <TextField fx:id="Name" layoutY="68.0" promptText="Name" />
+            <ComboBox fx:id="Company" layoutY="242.0" prefHeight="24.0" prefWidth="171.0" promptText="Company" />
+            <ComboBox fx:id="LastName" layoutY="194.0" prefHeight="24.0" prefWidth="171.0" promptText="LastName" />
+            <ComboBox fx:id="Number" layoutY="146.0" prefHeight="24.0" prefWidth="171.0" promptText="Number" />
+            <ComboBox fx:id="Adress" layoutY="106.0" prefHeight="24.0" prefWidth="171.0" promptText="Adress" />
+            <Button fx:id="bottonOk" layoutX="50.0" layoutY="321.0" mnemonicParsing="false" onAction="#onClickUpdate" prefHeight="24.0" prefWidth="99.0" text="ok" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
