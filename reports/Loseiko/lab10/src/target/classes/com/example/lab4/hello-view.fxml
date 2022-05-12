@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab4.Controllers.HelloController">
+   <children>
+      <TableView fx:id="table" layoutX="7.0" layoutY="6.0" prefHeight="525.0" prefWidth="782.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="NO" />
+          <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="pathColumn" prefWidth="75.0" text="Path" />
+            <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="numberColumn" prefWidth="75.0" text="Number" />
+            <TableColumn fx:id="driverColumn" prefWidth="75.0" text="Driver" />
+        </columns>
+      </TableView>
+      <Button fx:id="Add" layoutX="815.0" layoutY="101.0" mnemonicParsing="false" onAction="#onClickAdd" prefHeight="34.0" prefWidth="114.0" text="Add" />
+      <Button fx:id="Change" layoutX="815.0" layoutY="171.0" mnemonicParsing="false" onAction="#onClickChange" prefHeight="34.0" prefWidth="114.0" text="Change" />
+      <Button fx:id="Delete" layoutX="815.0" layoutY="252.0" mnemonicParsing="false" onAction="#onClickDelete" prefHeight="34.0" prefWidth="114.0" text="Delete" />
+      <Button fx:id="Refresh" layoutX="815.0" layoutY="337.0" mnemonicParsing="false" onAction="#onClickRefresh" prefHeight="34.0" prefWidth="114.0" text="Refresh" />
+   </children>
+</AnchorPane>
