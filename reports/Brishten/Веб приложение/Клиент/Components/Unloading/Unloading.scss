@@ -1,0 +1,18 @@
+.Unload{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 30rem;
+    background-color: #f5f5f7;;
+    border-radius: 10px;
+    &-wrapper{
+        display:flex;
+        position:relative;
+        flex-direction: column;
+        padding: 1.5rem;
+        .title {
+            margin-bottom: 1rem;
+        }  
+    }   
+}
