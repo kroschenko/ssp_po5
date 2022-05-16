@@ -1,0 +1,16 @@
+input {
+    border: 1px solid $medium-gray;
+    outline: none;
+    padding: 0.20rem 0.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    font-size: 0.9rem;
+}
+input:focus-visible {
+    outline: 2px solid $focus-outline;
+}
+
+.input-error {
+    outline: 2px solid $error;
+}

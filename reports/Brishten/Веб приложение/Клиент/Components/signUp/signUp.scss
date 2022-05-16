@@ -1,0 +1,44 @@
+@import '../../Assets/Colors.scss';
+
+.sign-up-component{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 30rem;
+    background-color: $light-gray;
+    border-radius: 10px;
+    .sign-up-wrapper{
+        display:flex;
+        position:relative;
+        flex-direction: column;
+        padding: 1.5rem;  
+        .inputs {
+            margin-top: 1.5rem;
+            .input {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                margin-bottom: 1.25rem;
+                input {
+                    width: 17.5rem;
+                    margin-left: 0.75rem;
+                }
+            }
+        }
+        .sign-up-status {
+            margin-bottom: 1rem;
+            color: $error;
+        }
+        .buttons{
+            display:flex;
+            justify-content: space-between;
+            .right-buttons {
+                display: flex;
+                .back-button{
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }   
+}

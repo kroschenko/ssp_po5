@@ -1,0 +1,13 @@
+@import '../../Assets/Colors.scss';
+
+.List{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 40rem;
+    height: auto;
+    background-color: $light-gray;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}

@@ -1,0 +1,28 @@
+@import '../../Assets/Colors.scss';
+
+.Detail {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 40rem;
+    height: auto;
+    background-color: $light-gray;
+    border-radius: 10px;
+    &-wrapper{
+        padding: 2rem;
+    }
+    .Detail-button{
+        padding-top: 0.5rem;
+        margin-left: 15rem;
+    }
+    .user-button{
+        padding: 1rem;
+    }
+    .care {
+        cursor: pointer;
+        margin-top: 5rem;
+        margin-left: 5rem;
+    }
+}
+

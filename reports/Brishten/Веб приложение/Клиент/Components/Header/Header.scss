@@ -1,0 +1,47 @@
+@import '../../Assets/Colors.scss';
+
+header {
+    color: #fff;
+    position: relative;
+    backdrop-filter: blur(20px);
+    background-color: rgba(0, 0, 0, 0.1);
+    .header-wrapper {
+        padding: 0.5rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        .info {
+            display: flex;
+            justify-content: space-between;
+            .login {
+                margin-right: 1rem;
+            }
+        }
+        .logo {
+            display: flex;
+            justify-content: space-between;
+            .react-link {
+                margin-left: 1rem;
+                p {
+                    color: #fff;
+                }
+            }
+            .form {
+                white-space: nowrap;
+                margin-left: 2rem;
+                .input {
+                    margin-right: 1rem;
+                    color: #000;
+                    background-color: rgba(0, 0, 0, 0.1);
+                }
+                .button {
+                    color: white;
+                }
+            }
+            .info {
+                margin-left: 3rem;
+                color: #000;
+                font-weight: bold;
+            }
+        }
+    }
+}

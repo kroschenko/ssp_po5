@@ -1,0 +1,19 @@
+.button {
+    background: $base-blue;
+    border: 1px solid $medium-gray;
+    color: #fff;
+    outline: none;
+    padding: 4px 11px;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+.button:hover {
+    background: $base-blue-hover;
+}
+.button-not-active {
+    background-color: #fff;
+    color: #000;
+}
+.button-not-active:hover {
+    background-color: #fff;
+}
