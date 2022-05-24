@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox id="root" prefHeight="674.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.labs.spp.lab12_spp_client.PrimaryController">
+   <children>
+      <ListView fx:id="chatsList" onMouseClicked="#chatChanged" prefHeight="674.0" prefWidth="214.0" />
+      <VBox prefHeight="674.0" prefWidth="725.0">
+         <children>
+            <TextArea fx:id="chatStory" editable="false" prefHeight="668.0" prefWidth="726.0" />
+            <TextField fx:id="clientMessage" prefHeight="52.0" prefWidth="726.0" promptText="Введите сообщение" />
+         </children>
+      </VBox>
+   </children>
+</HBox>
