@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="518.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab4.Controllers.FromInsertDBController">
+   <children>
+      <AnchorPane layoutX="126.0" layoutY="14.0" prefHeight="389.0" prefWidth="266.0">
+         <children>
+            <TextField fx:id="Date" layoutY="68.0" promptText="Date" />
+            <ComboBox fx:id="Path" layoutY="242.0" prefHeight="24.0" prefWidth="171.0" promptText="Path" />
+            <ComboBox fx:id="Type" layoutY="194.0" prefHeight="24.0" prefWidth="171.0" promptText="Type" />
+            <ComboBox fx:id="Number" layoutY="146.0" prefHeight="24.0" prefWidth="171.0" promptText="Number" />
+            <ComboBox fx:id="Driver" layoutY="106.0" prefHeight="24.0" prefWidth="171.0" promptText="Driver" />
+            <Button fx:id="bottonOk" layoutX="35.0" layoutY="321.0" mnemonicParsing="false" onAction="#onClickInsert" prefHeight="24.0" prefWidth="99.0" text="ok" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
