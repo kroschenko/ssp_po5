@@ -1,0 +1,1 @@
+java -jar lab2.jar %1 %2
